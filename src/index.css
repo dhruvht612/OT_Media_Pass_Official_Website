@@ -41,6 +41,19 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-text-fill-color: transparent;
 }
 
+.animate-spin-slow {
+  animation: spin-slow 2.4s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Swiper Custom Styles */
 .swiper-button-next,
 .swiper-button-prev {
