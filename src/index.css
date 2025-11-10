@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #0b0b0b;
+  --color-lavender: #ee88ee;
+  --color-lavender-light: #c7a0ff;
+  --color-lavender-dark: #330033;
+  --color-white: #f5f5f5;
+  
+  --font-family-poppins: 'Poppins', sans-serif;
+  --font-family-open-sans: 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Gradient text utilities */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.text-transparent {
+  color: transparent;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ee88ee, #c7a0ff, #fff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Swiper Custom Styles */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #e8e !important;
+}
+
+.swiper-pagination-bullet {
+  background: #fff !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #e8e !important;
+}
+
+.mySwiper {
+  padding-bottom: 40px;
+}
