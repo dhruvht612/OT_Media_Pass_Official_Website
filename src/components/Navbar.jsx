@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,9 +39,11 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo/Brand */}
             <Link to="/" className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-lavender/20 text-lavender">
-                <i className="fas fa-camera-retro" />
-              </div>
+              <img
+                src={logo}
+                alt="Ontario Tech Media Pass logo"
+                className="h-12 w-auto object-contain rounded-full border border-white/10 bg-white/5 p-1 shadow-[0_0_20px_rgba(0,0,0,0.35)]"
+              />
               <div className="flex flex-col leading-tight">
                 <span className="font-bold text-lg tracking-wide uppercase">OT Media Pass</span>
                 <span className="text-[10px] uppercase tracking-[0.4em] text-white/50 hidden sm:block">
