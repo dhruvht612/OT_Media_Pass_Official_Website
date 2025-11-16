@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../assets/Logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,9 +12,11 @@ const Footer = () => {
         {/* Branding */}
         <div>
           <div className="flex items-center gap-3 mb-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-lavender/20 text-lavender text-xl">
-              <i className="fas fa-camera" />
-            </div>
+            <img
+              src={logo}
+              alt="OT Media Pass logo"
+              className="h-12 w-12 rounded-full border border-white/10 bg-white/5 object-contain"
+            />
             <div>
               <h3 className="text-lavender font-bold text-2xl">Ontario Tech Media Pass</h3>
               <p className="uppercase tracking-[0.4em] text-[10px] text-white/40">Student Media Collective</p>

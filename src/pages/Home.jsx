@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { upcomingEvents } from '../data/events';
 import { teamMembers } from '../data/team';
 import teamPhoto from '../assets/Team_Pictures/Team_Pic.jpg';
+import logo from '../assets/Logo.png';
 
 const Home = () => {
   return (
@@ -18,10 +19,17 @@ const Home = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-28 md:pb-36">
           <div className="grid gap-12 lg:grid-cols-[2fr,1.4fr] items-center">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.35em] text-white/60">
-                Ontario Tech Media Pass
-              </span>
-              <h1 className="mt-6 text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
+              <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-black/40 border border-white/15 px-4 py-2">
+                <img
+                  src={logo}
+                  alt="OT Media Pass logo"
+                  className="h-8 w-8 rounded-full border border-white/10 object-contain"
+                />
+                <span className="text-xs uppercase tracking-[0.35em] text-white/60">
+                  Ontario Tech Media Pass
+                </span>
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
                 Capturing Campus Moments, Crafting Lasting Memories.
               </h1>
               <p className="mt-6 max-w-2xl text-base md:text-lg text-white/80 leading-relaxed">
@@ -168,11 +176,23 @@ const Home = () => {
       {/* About Section */}
       <section className="max-w-7xl mx-auto py-24 px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
-          <img 
-            src={teamPhoto} 
-            alt="Media Team"
-            className="rounded-2xl shadow-lg hover:shadow-lavender/40 transition hover:scale-105"
-          />
+          <div className="relative">
+            <img 
+              src={teamPhoto} 
+              alt="Media Team"
+              className="rounded-2xl shadow-lg hover:shadow-lavender/40 transition hover:scale-105"
+            />
+            <div className="absolute -top-5 -left-5 flex items-center gap-2 rounded-full bg-black/70 border border-white/10 px-3 py-1 shadow-[0_0_25px_rgba(232,136,232,0.4)]">
+              <img
+                src={logo}
+                alt="OT Media Pass logo"
+                className="h-8 w-8 rounded-full border border-white/10 object-contain"
+              />
+              <span className="text-[10px] uppercase tracking-[0.25em] text-white/70 hidden sm:inline">
+                Media Pass Team
+              </span>
+            </div>
+          </div>
           <div>
             <h2 className="text-3xl font-bold text-lavender mb-4">About Ontario Tech Media Pass</h2>
             <p className="text-white/80 mb-4">
