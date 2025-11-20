@@ -94,7 +94,7 @@ const News = () => {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/wingcheungho"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-14 h-14 bg-white text-lavender rounded-full hover:bg-lavender hover:text-white transition-all duration-300 transform hover:scale-110"

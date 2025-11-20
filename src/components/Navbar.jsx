@@ -10,6 +10,9 @@ const Navbar = () => {
     if (path.startsWith('/events')) {
       return location.pathname.startsWith('/events');
     }
+    if (path.startsWith('/join')) {
+      return location.pathname.startsWith('/join');
+    }
     return location.pathname === path;
   };
 

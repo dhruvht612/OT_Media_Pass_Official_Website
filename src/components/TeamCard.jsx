@@ -1,18 +1,35 @@
 const TeamCard = ({ member }) => {
   return (
-    <div className="group bg-gray-950/60 border border-[#e8e]/30 rounded-2xl shadow-lg p-6 text-center hover:shadow-[0_0_20px_#e8e] hover:border-[#e8e]/70 transition-transform duration-300 hover:-translate-y-2">
-      <img
-        src={member.image}
-        alt={member.name}
-        className="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-2 border-[#e8e]/50"
-      />
-      <h3 className="text-xl font-semibold text-[#e8e]">{member.name}</h3>
-      <p className="text-gray-400">{member.role} · {member.program}</p>
-      <p className="text-gray-300 text-sm mt-3 italic">{member.bio}</p>
+    <div className="group relative bg-gradient-to-br from-gray-950/80 via-gray-950/60 to-gray-950/80 border border-[#e8e]/30 rounded-2xl shadow-lg p-6 text-center hover:shadow-[0_0_30px_rgba(238,136,238,0.4)] hover:border-[#e8e]/80 transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+      {/* Animated background gradient on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-lavender/0 via-lavender/0 to-lavender/0 group-hover:from-lavender/5 group-hover:via-lavender/10 group-hover:to-lavender/5 transition-all duration-500 rounded-2xl" />
       
-      {/* Social Links */}
-      {member.socials && (
-        <div className="flex justify-center space-x-4 mt-4 text-[#e8e]">
+      {/* Glow effect */}
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-lavender/0 via-[#e8e]/0 to-lavender/0 group-hover:from-lavender/20 group-hover:via-[#e8e]/30 group-hover:to-lavender/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+      
+      <div className="relative z-10">
+        <div className="relative inline-block mb-4">
+          <div className="absolute inset-0 bg-gradient-to-br from-lavender/30 to-[#e8e]/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {member.image ? (
+            <img
+              src={member.image}
+              alt={member.name}
+              className="relative w-32 h-32 object-cover rounded-full mx-auto border-2 border-[#e8e]/50 group-hover:border-[#e8e] transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-lavender/30"
+            />
+          ) : (
+            <div className="relative w-32 h-32 rounded-full mx-auto border-2 border-[#e8e]/50 group-hover:border-[#e8e] transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-lavender/30 bg-gradient-to-br from-lavender/20 to-[#e8e]/20 flex items-center justify-center">
+              <span className="text-3xl font-bold text-lavender">{member.name.charAt(0).toUpperCase()}</span>
+            </div>
+          )}
+        </div>
+        <h3 className="text-xl font-bold text-[#e8e] mb-1 group-hover:text-lavender transition-colors duration-300">{member.name}</h3>
+        <p className="text-gray-400 text-sm mb-2">{member.role}</p>
+        <p className="text-gray-500 text-xs mb-3">{member.program}</p>
+        <p className="text-gray-300 text-sm mt-3 italic leading-relaxed min-h-[3rem]">{member.bio}</p>
+        
+        {/* Social Links */}
+        {member.socials && (
+          <div className="flex justify-center space-x-4 mt-5 pt-4 border-t border-[#e8e]/10 group-hover:border-[#e8e]/30 transition-colors duration-300">
           {member.socials.linkedin && (
             <a 
               href={member.socials.linkedin} 
@@ -80,6 +97,7 @@ const TeamCard = ({ member }) => {
           )}
         </div>
       )}
+      </div>
     </div>
   );
 };

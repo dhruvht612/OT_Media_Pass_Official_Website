@@ -13,6 +13,7 @@ import Gallery from './pages/Gallery';
 import News from './pages/News';
 import Contact from './pages/Contact';
 import Join from './pages/Join';
+import Positions from './pages/Join/Positions';
 import Preloader from './components/Preloader';
 
 function App() {
@@ -68,6 +69,7 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/join" element={<Join />} />
+            <Route path="/join/positions" element={<Positions />} />
           </Routes>
         </main>
         <Footer />

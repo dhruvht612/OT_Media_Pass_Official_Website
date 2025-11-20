@@ -166,7 +166,7 @@ const Footer = () => {
               <i className="fab fa-youtube"></i>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/wingcheungho"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-lavender transition"
