@@ -52,26 +52,95 @@ const Positions = () => {
         </div>
       </section>
 
-      {/* Open Positions */}
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-[#e8e] mb-4">Available Positions</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              We're currently looking for talented individuals to join our team. Click on any position to view details and requirements.
-            </p>
-            <div className="mt-6 text-sm text-gray-500">
-              {openPositions.length} {openPositions.length === 1 ? 'position' : 'positions'} available
+      {/* Tech Team Positions */}
+      {openPositions.filter(p => p.department === 'Tech').length > 0 && (
+        <section className="py-16 border-b border-white/10">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[#e8e] mb-4">Tech Team Positions</h2>
+              <div className="max-w-4xl mx-auto space-y-4 text-gray-300 leading-relaxed">
+                <p>
+                  Please select the role that best aligns with your skills, interests, and experience.
+                </p>
+                <p>
+                  Each position plays an important part in keeping OT Media Pass running smoothly — from designing engaging visuals and improving user experience to developing new features and maintaining the website's functionality.
+                </p>
+                <p>
+                  Whether you're a designer with a creative eye or a developer who loves solving problems, we encourage you to choose the role that best reflects where you can make the most impact and continue growing your skills.
+                </p>
+              </div>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {openPositions
+                .filter(position => position.department === 'Tech')
+                .map((position) => (
+                  <PositionCard key={position.id} position={position} />
+                ))}
             </div>
           </div>
+        </section>
+      )}
 
-          {openPositions.length > 0 ? (
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {openPositions.map((position) => (
-                <PositionCard key={position.id} position={position} />
-              ))}
+      {/* Outreach Team Positions */}
+      {openPositions.filter(p => p.department === 'Outreach').length > 0 && (
+        <section className="py-16 border-b border-white/10">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[#e8e] mb-4">Outreach Team Positions</h2>
+              <div className="max-w-4xl mx-auto space-y-4 text-gray-300 leading-relaxed text-center">
+                <p>
+                  Develop and execute strategic outreach initiatives to expand OT Media Pass's network across campus and beyond. Craft compelling email communications, engage with potential partners through social media platforms, and identify opportunities for meaningful connections.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3 mt-6">
+                  <span className="px-4 py-2 rounded-full bg-lavender/10 text-lavender text-sm border border-lavender/20">
+                    Communication
+                  </span>
+                  <span className="px-4 py-2 rounded-full bg-lavender/10 text-lavender text-sm border border-lavender/20">
+                    Outreach
+                  </span>
+                  <span className="px-4 py-2 rounded-full bg-lavender/10 text-lavender text-sm border border-lavender/20">
+                    Social
+                  </span>
+                </div>
+              </div>
             </div>
-          ) : (
+            <div className="flex flex-wrap justify-center gap-8">
+              {openPositions
+                .filter(position => position.department === 'Outreach')
+                .map((position) => (
+                  <div key={position.id} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm">
+                    <PositionCard position={position} />
+                  </div>
+                ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Other Open Positions */}
+      <section className="py-16">
+        <div className="container mx-auto px-6">
+          {openPositions.filter(p => p.department !== 'Tech' && p.department !== 'Outreach').length > 0 && (
+            <>
+              <div className="text-center mb-12">
+                <h2 className="text-4xl font-bold text-[#e8e] mb-4">Other Available Positions</h2>
+                <p className="text-gray-400 max-w-2xl mx-auto">
+                  We're currently looking for talented individuals to join our team. Click on any position to view details and requirements.
+                </p>
+                <div className="mt-6 text-sm text-gray-500">
+                  {openPositions.filter(p => p.department !== 'Tech' && p.department !== 'Outreach').length} {openPositions.filter(p => p.department !== 'Tech' && p.department !== 'Outreach').length === 1 ? 'position' : 'positions'} available
+                </div>
+              </div>
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {openPositions
+                  .filter(position => position.department !== 'Tech' && position.department !== 'Outreach')
+                  .map((position) => (
+                    <PositionCard key={position.id} position={position} />
+                  ))}
+              </div>
+            </>
+          )}
+          {openPositions.length === 0 && (
             <div className="text-center py-16">
               <p className="text-gray-400 text-lg mb-4">No open positions at this time.</p>
               <p className="text-gray-500 text-sm">

@@ -11,7 +11,7 @@ import eyadPic from '../assets/Team_Pictures/Eyad_Pic.jpg';
 import wingPic from '../assets/Team_Pictures/Wing_Pic.jpg';
 import humzaPic from '../assets/Team_Pictures/Humza_Pic.jpg';
 // import nathanielPic from '../assets/Team_Pictures/Nathaniel_Pic.jpg';
-// import siretPic from '../assets/Team_Pictures/Siret_Pic.jpg';
+import siretPic from '../assets/Team_Pictures/Siret_pic.jpg';
 import billyPic from '../assets/Team_Pictures/Billy_Pic.jpg';
 // import emekaPic from '../assets/Team_Pictures/Emeka_Pic.jpg';
 import dhruvPic from '../assets/Team_Pictures/Dhruv_Pic.jpg';
@@ -25,10 +25,7 @@ export const teamMembers = [
     program: "First-Year Nursing Student",
     bio: "Hey everyone! I'm Natalie. Fun fact: I love running and also have my own vlog-like channel @nursing.autumn.",
     image: nataliePic,
-    socials: {
-      instagram: "#",
-      linkedin: "#"
-    }
+    socials: {}
   },
   {
     id: 2,
@@ -38,8 +35,7 @@ export const teamMembers = [
     bio: "Hi, I'm Hannah! Fun fact: if I could have any superpower, it would be the ability to speak all languages fluently.",
     image: hannahPic,
     socials: {
-      linkedin: "https://www.linkedin.com/in/hannahcam",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com/in/hannahcam"
     }
   },
   {
@@ -49,10 +45,7 @@ export const teamMembers = [
     program: "Forensic Psychology Advanced Entry · Minor in Digital Media & Communication",
     bio: "I love exploring the arts and media entertainment, and though I may not be a pro, I enjoy trying new creative endeavors. Fun fact: I currently work in the film and television industry.",
     image: ryanPic,
-    socials: {
-      linkedin: "#",
-      instagram: "#"
-    }
+    socials: {}
   },
   {
     id: 4,
@@ -158,8 +151,7 @@ export const teamMembers = [
     bio: "Hi, I'm Wing! I capture light and chase speed.",
     image: wingPic,
     socials: {
-      linkedin: "https://www.linkedin.com/in/wingcheungho",
-      instagram: "#"
+      linkedin: "https://www.linkedin.com/in/wingcheungho"
     }
   },
   {
@@ -169,21 +161,18 @@ export const teamMembers = [
     program: "Program TBD",
     bio: "Co-President of OT Media Pass.",
     //image: nathanielPic,
-    socials: {
-      linkedin: "#",
-      instagram: "#"
-    }
+    socials: {}
   },
   {
     id: 14,
-    name: "Siret",
+    name: "Siret Ece Dede",
     role: "Marketing Executive",
-    program: "Program TBD",
-    bio: "Marketing Executive at OT Media Pass.",
-    //image: siretPic,
+    program: "1st year Business Commerce",
+    bio: "Hi, I'm Ece! I enjoy reading and learning new songs to play with my flute. I like discovering new cafes and restaurants.",
+    image: siretPic,
     socials: {
-      linkedin: "#",
-      instagram: "#"
+      instagram: "https://www.instagram.com/ecedd?igsh=MWttdHV5YXYwdHBnNA==",
+      linkedin: "https://www.linkedin.com/in/siret-ece-dede-568093270?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     }
   },
   {
@@ -193,10 +182,7 @@ export const teamMembers = [
     program: "3rd Year Health Science",
     bio: "Marketing Executive at OT Media Pass.",
     image: billyPic,
-    socials: {
-      linkedin: "#",
-      instagram: "#"
-    }
+    socials: {}
   },
   {
     id: 16,
@@ -205,10 +191,7 @@ export const teamMembers = [
     program: "Program TBD",
     bio: "Outreach Coordinator at OT Media Pass.",
     //image: emekaPic,
-    socials: {
-      linkedin: "#",
-      instagram: "#"
-    }
+    socials: {}
   },
   {
     id: 17,
@@ -232,10 +215,7 @@ export const teamMembers = [
     program: "Program TBD",
     bio: "Vice President of Social Media at OT Media Pass.",
     //image: stevePic,
-    socials: {
-      linkedin: "#",
-      instagram: "#"
-    }
+    socials: {}
   }
 ];
 

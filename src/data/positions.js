@@ -1,129 +1,109 @@
 export const openPositions = [
   {
     id: 1,
-    title: 'Photography Team Member',
-    department: 'Creative Production',
+    title: 'UI/UX or Graphic Designer',
+    department: 'Tech',
     type: 'Volunteer',
-    description: 'Capture stunning moments at campus events through photography. Work with our team to document student life, events, and special occasions.',
+    description: 'Design engaging visuals and improve user experience for our website and digital platforms. Create intuitive interfaces and maintain our visual brand identity across all digital touchpoints.',
     requirements: [
-      'Experience with DSLR or mirrorless cameras',
-      'Basic knowledge of composition and lighting',
-      'Availability for weekend and evening events',
-      'Passion for storytelling through images'
+      'Proficiency in design tools (Figma, Adobe XD, Sketch, or similar)',
+      'Understanding of UI/UX principles and best practices',
+      'Strong sense of visual design and typography',
+      'Portfolio demonstrating design skills',
+      'Ability to create responsive designs',
+      'Knowledge of accessibility standards'
     ],
     responsibilities: [
-      'Attend and photograph campus events',
-      'Edit and deliver photos in a timely manner',
-      'Collaborate with videography and marketing teams',
-      'Maintain equipment and follow safety protocols'
+      'Design user interfaces for web and mobile',
+      'Create wireframes, mockups, and prototypes',
+      'Improve user experience and usability',
+      'Design graphics and visual elements',
+      'Collaborate with developers to implement designs',
+      'Maintain design consistency across platforms'
     ],
-    skills: ['Photography', 'Photo Editing', 'Event Coverage'],
+    skills: ['UI/UX Design', 'Graphic Design', 'Figma', 'Prototyping', 'User Research'],
     status: 'Open'
   },
   {
     id: 2,
-    title: 'Videography Team Member',
-    department: 'Creative Production',
+    title: 'Front End Developer',
+    department: 'Tech',
     type: 'Volunteer',
-    description: 'Create compelling video content for campus events, promotional materials, and social media. Bring stories to life through motion and sound.',
+    description: 'Develop and maintain the front-end of our website. Build responsive, interactive user interfaces and ensure optimal user experience across all devices.',
     requirements: [
-      'Experience with video cameras or smartphones',
-      'Basic video editing skills (Premiere Pro, Final Cut, or DaVinci Resolve)',
-      'Understanding of storytelling and pacing',
-      'Flexible schedule for event coverage'
+      'Proficiency in HTML, CSS, and JavaScript',
+      'Experience with React or similar frameworks',
+      'Understanding of responsive design principles',
+      'Knowledge of version control (Git)',
+      'Familiarity with modern build tools and workflows',
+      'Attention to detail and code quality'
     ],
     responsibilities: [
-      'Film events and create video content',
-      'Edit videos with attention to detail',
-      'Collaborate on creative concepts',
-      'Deliver final products on deadline'
+      'Develop new features and user interfaces',
+      'Implement responsive designs',
+      'Optimize website performance and loading times',
+      'Ensure cross-browser compatibility',
+      'Collaborate with designers and backend developers',
+      'Maintain and update existing codebase',
+      'Write clean, maintainable code'
     ],
-    skills: ['Videography', 'Video Editing', 'Storytelling'],
+    skills: ['React', 'JavaScript', 'HTML/CSS', 'Git', 'Responsive Design'],
     status: 'Open'
   },
   {
     id: 3,
-    title: 'Social Media Coordinator',
-    department: 'Marketing',
+    title: 'Backend Developer',
+    department: 'Tech',
     type: 'Volunteer',
-    description: 'Manage our social media presence across platforms. Create engaging content, schedule posts, and grow our online community.',
+    description: 'Develop and maintain the backend infrastructure and functionality of our website. Build APIs, manage databases, and ensure smooth server-side operations.',
     requirements: [
-      'Strong understanding of social media platforms',
-      'Creative writing and content creation skills',
-      'Knowledge of social media analytics',
-      'Ability to work independently and meet deadlines'
+      'Experience with server-side programming languages (Node.js, Python, or similar)',
+      'Understanding of RESTful APIs and web services',
+      'Knowledge of databases (SQL or NoSQL)',
+      'Familiarity with version control (Git)',
+      'Understanding of security best practices',
+      'Problem-solving and debugging skills'
     ],
     responsibilities: [
-      'Create and schedule social media content',
-      'Engage with our online community',
-      'Track analytics and report on performance',
-      'Collaborate with creative teams for content'
+      'Develop and maintain backend services and APIs',
+      'Design and manage database schemas',
+      'Implement authentication and authorization',
+      'Optimize server performance and scalability',
+      'Ensure data security and privacy',
+      'Collaborate with front-end developers',
+      'Maintain and update server infrastructure'
     ],
-    skills: ['Social Media', 'Content Creation', 'Analytics'],
+    skills: ['Node.js', 'API Development', 'Database Management', 'Git', 'Server Architecture'],
     status: 'Open'
   },
   {
     id: 4,
-    title: 'Graphic Designer',
-    department: 'Marketing',
+    title: 'Outreach Executive',
+    department: 'Outreach',
     type: 'Volunteer',
-    description: 'Design visual content for social media, posters, and promotional materials. Help establish and maintain our brand identity.',
+    description: "Develop and execute strategic outreach initiatives to expand OT Media Pass's network across campus and beyond. Craft compelling email communications, engage with potential partners through social media platforms, and identify opportunities for meaningful connections.",
     requirements: [
-      'Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)',
-      'Strong sense of design and typography',
-      'Portfolio demonstrating design skills',
-      'Ability to work with brand guidelines'
+      'Ability to commit 1-2 hours per week',
+      'Strong written and verbal communication skills',
+      'Experience with email and social media outreach',
+      'Creative thinking for outreach strategies',
+      'Ability to identify and research potential contacts',
+      'Self-motivated and able to work independently',
+      'Comfortable meeting deadlines',
+      'Enthusiastic and passionate about building connections'
     ],
     responsibilities: [
-      'Create graphics for social media and events',
-      'Design promotional materials and posters',
-      'Maintain brand consistency across all designs',
-      'Collaborate with marketing team on campaigns'
+      'Send emails and Instagram messages for outreach',
+      'Develop creative outreach strategies',
+      'Identify and research potential contacts and partners',
+      'Manage outreach tasks independently',
+      'Meet stated deadlines consistently',
+      'Help grow OT Media Pass through engaging outreach',
+      'Track and report on outreach activities'
     ],
-    skills: ['Graphic Design', 'Adobe Creative Suite', 'Branding'],
-    status: 'Open'
-  },
-  {
-    id: 5,
-    title: 'Event Coordinator',
-    department: 'Operations',
-    type: 'Volunteer',
-    description: 'Help plan and coordinate media coverage for campus events. Work with event organizers to ensure smooth operations.',
-    requirements: [
-      'Strong organizational and communication skills',
-      'Ability to manage multiple projects',
-      'Experience with event planning (preferred)',
-      'Flexible schedule for event days'
-    ],
-    responsibilities: [
-      'Coordinate event coverage schedules',
-      'Communicate with event organizers',
-      'Manage equipment and logistics',
-      'Ensure team members are briefed and prepared'
-    ],
-    skills: ['Event Planning', 'Communication', 'Organization'],
-    status: 'Open'
-  },
-  {
-    id: 6,
-    title: 'Content Writer',
-    department: 'Marketing',
-    type: 'Volunteer',
-    description: 'Write engaging content for our website, newsletters, and social media. Tell the stories behind our events and team members.',
-    requirements: [
-      'Strong writing and storytelling skills',
-      'Ability to adapt tone and style',
-      'Attention to detail and grammar',
-      'Passion for student life and campus culture'
-    ],
-    responsibilities: [
-      'Write blog posts and articles',
-      'Create social media captions',
-      'Develop content for newsletters',
-      'Edit and proofread team content'
-    ],
-    skills: ['Writing', 'Storytelling', 'Content Strategy'],
-    status: 'Open'
+    skills: ['Communication', 'Outreach', 'Social Media', 'Email Marketing', 'Research', 'Strategy'],
+    status: 'Open',
+    positionsAvailable: 3
   }
 ];
 
