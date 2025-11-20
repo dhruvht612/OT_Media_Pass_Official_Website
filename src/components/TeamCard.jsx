@@ -95,6 +95,19 @@ const TeamCard = ({ member }) => {
               </svg>
             </a>
           )}
+          {member.socials.linktree && (
+            <a
+              href={member.socials.linktree}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-transform hover:scale-110 hover:text-green-400"
+              aria-label="Linktree"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" className="w-6 h-6">
+                <path d="M0 64C0 28.7 28.7 0 64 0H384c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zM48 96V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64c-8.8 0-16 7.2-16 16zM224 208c35.3 0 64 28.7 64 64s-28.7 64-64 64s-64-28.7-64-64s28.7-64 64-64zM80 272c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H96c-8.8 0-16 7.2-16 16zm288 0c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16s-7.2-16-16-16H384c-8.8 0-16 7.2-16 16z"/>
+              </svg>
+            </a>
+          )}
         </div>
       )}
       </div>

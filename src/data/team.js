@@ -16,6 +16,7 @@ import billyPic from '../assets/Team_Pictures/Billy_Pic.jpg';
 // import emekaPic from '../assets/Team_Pictures/Emeka_Pic.jpg';
 import dhruvPic from '../assets/Team_Pictures/Dhruv_Pic.jpg';
 // import stevePic from '../assets/Team_Pictures/Steve_Pic.jpg';
+// Note: Add Steve_Pic.jpg to Team_Pictures folder when available
 
 export const teamMembers = [
   {
@@ -210,12 +211,16 @@ export const teamMembers = [
   },
   {
     id: 18,
-    name: "Steve",
+    name: "Steve (Teto) Khalil",
     role: "Vice President Social Media",
-    program: "Program TBD",
-    bio: "Vice President of Social Media at OT Media Pass.",
+    program: "3rd year Software Engineering",
+    bio: "Hey! I'm Teto, I run a lot of the stuff going on with our socials! My favorite media to work on is streaming and video editing. I have more interests than I can actually list here. Fun Fact: I have 2 cats named Zoovie and Oreo.",
     //image: stevePic,
-    socials: {}
+    socials: {
+      linktree: "https://linktr.ee/tetomario",
+      instagram: "https://www.instagram.com/t.m.p__",
+      linkedin: "https://www.linkedin.com/in/steve-khalil-7b596126a"
+    }
   }
 ];
 
