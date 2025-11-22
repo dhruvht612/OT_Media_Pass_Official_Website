@@ -6,102 +6,131 @@ const Home = () => {
   return (
     <div className="bg-gradient-to-b from-black via-[#120012] to-black text-white">
       {/* Hero Section */}
-      <section className="relative overflow-hidden text-white">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-white">
+        {/* Animated Background Layers */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#100010] via-[#250026] to-black opacity-95" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(238,136,238,0.35),transparent_55%)]" />
-          <div className="absolute -bottom-32 -right-24 h-96 w-96 rounded-full bg-lavender/10 blur-3xl" />
-          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-lavender/20 blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a000a] via-[#1a001a] to-black" />
+          {/* Pulsing gradient orbs */}
+          <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full bg-lavender/20 blur-3xl animate-pulse" style={{ animationDuration: '4s' }} />
+          <div className="absolute bottom-1/4 right-1/4 h-[500px] w-[500px] rounded-full bg-lavender/10 blur-3xl animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
+          <div className="absolute top-1/2 right-1/3 h-72 w-72 rounded-full bg-lavender-light/15 blur-3xl animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+          {/* Radial gradients */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(238,136,238,0.3),transparent_50%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(199,160,255,0.2),transparent_50%)]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-28 md:pb-36">
-          <div className="grid gap-12 lg:grid-cols-[2fr,1.4fr] items-center">
-            <div>
-              <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-black/40 border border-white/15 px-4 py-2">
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full">
+          <div className="text-center max-w-5xl mx-auto">
+            {/* Logo Badge */}
+            <div className="mb-8 inline-flex items-center gap-3 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 px-5 py-3 animate-fade-in-down opacity-0 animation-delay-100 group hover:border-lavender/50 hover:bg-black/80 transition-all duration-500 hover:scale-105 hover:shadow-[0_0_30px_rgba(232,136,232,0.3)]">
+              <div className="relative">
                 <img
                   src={logo}
                   alt="OT Media Pass logo"
-                  className="h-8 w-8 rounded-full border border-white/10 object-contain"
+                  className="h-10 w-10 rounded-full border border-white/20 object-contain group-hover:scale-110 transition-transform duration-300"
                 />
-                <span className="text-xs uppercase tracking-[0.35em] text-white/60">
-                  Ontario Tech Media Pass
-                </span>
+                <div className="absolute inset-0 rounded-full bg-lavender/30 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold leading-tight">
-                Capturing Campus Moments, Crafting Lasting Memories.
-              </h1>
-              <p className="mt-6 max-w-2xl text-base md:text-lg text-white/80 leading-relaxed">
-                We are the student media crew documenting Ontario Tech University. From headline events to spontaneous
-                moments, our photographers, filmmakers, and storytellers turn campus life into cinematic experiences.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  to="/gallery"
-                  className="inline-flex items-center justify-center rounded-full bg-lavender px-6 py-3 text-sm font-semibold text-black transition hover:bg-lavender-light hover:scale-105 shadow-[0_0_25px_rgba(232,136,232,0.35)]"
-                >
-                  Explore Gallery
-                </Link>
-                <Link
-                  to="/join"
-                  className="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white transition hover:border-lavender hover:text-lavender"
-                >
-                  Join the Crew
-                </Link>
-              </div>
+              <span className="text-sm uppercase tracking-[0.4em] text-white/70 group-hover:text-lavender transition-colors font-medium">
+                Ontario Tech Media Pass
+              </span>
             </div>
 
-            <div className="relative">
-              <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-md p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
-                <div className="flex items-center justify-between pb-5 border-b border-white/10">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.3em] text-white/60">Highlights</p>
-                    <p className="mt-2 text-2xl font-semibold text-white">This Month with Media Pass</p>
-                  </div>
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-lavender/20 text-lavender">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 384 512" className="w-5 h-5">
-                      <path d="M381.2 172.8C377.1 164.9 368.9 160 360 160h-156.6l50.84-127.1c2.25-5.66 2.156-11.95-.344-17.59C250.1 10.95 242.5 6.125 234.4 6.125H24C10.75 6.125 0 16.88 0 30.05S10.75 54 24 54h118.4l-50.84 127.1c-2.25 5.656-2.156 11.95 .3438 17.59C95.88 213.1 103.5 218 111.6 218H268.2l-50.84 127.1c-2.25 5.656-2.156 11.95 .3438 17.59C221.9 381.1 229.5 386 237.6 386H360c13.25 0 24-10.75 24-24s-10.75-24-24-24H255.8l50.84-127.1C309.1 229.2 309.2 222.9 306.7 217.3L381.2 172.8z"/>
-                    </svg>
-                  </span>
-                </div>
-                <div className="mt-6 space-y-4 text-sm text-white/80">
-                  <div className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-lavender"></span>
-                    <p>Covering <span className="font-semibold text-white">3 major events</span> including Ridgebacks Game Night and Ignite Conference.</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-lavender"></span>
-                    <p>Launching a new <span className="font-semibold text-white">portrait studio series</span> for club showcases.</p>
-                  </div>
-                  <div className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 rounded-full bg-lavender"></span>
-                    <p>Recruiting creatives for <span className="font-semibold text-white">editing & marketing</span> roles — join us!</p>
-                  </div>
-                </div>
-                <Link
-                  to="/events/overview"
-                  className="mt-8 inline-flex items-center justify-between w-full rounded-xl border border-white/10 bg-black/40 px-5 py-4 text-sm font-semibold text-white transition hover:border-lavender hover:text-lavender"
+            {/* Main Heading */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.1] mb-6 animate-fade-in-up opacity-0 animation-delay-200">
+              <span className="block mb-2 bg-gradient-to-r from-white via-lavender-light to-white bg-clip-text text-transparent">
+                Capturing Campus
+              </span>
+              <span className="block bg-gradient-to-r from-lavender via-white to-lavender bg-clip-text text-transparent">
+                Moments, Crafting
+              </span>
+              <span className="block mt-2 bg-gradient-to-r from-white via-lavender to-white bg-clip-text text-transparent">
+                Lasting Memories
+              </span>
+            </h1>
+
+            {/* Description */}
+            <p className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed mb-10 animate-fade-in-up opacity-0 animation-delay-300">
+              We are the student media crew documenting Ontario Tech University. From headline events to spontaneous
+              moments, our photographers, filmmakers, and storytellers turn campus life into{' '}
+              <span className="text-lavender font-semibold">cinematic experiences</span>.
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap items-center justify-center gap-4 mb-16 animate-fade-in-up opacity-0 animation-delay-400">
+              <Link
+                to="/gallery"
+                className="group inline-flex items-center justify-center gap-3 rounded-full bg-lavender px-8 py-4 text-base font-bold text-black transition-all duration-300 hover:bg-lavender-light hover:scale-110 shadow-[0_0_30px_rgba(232,136,232,0.4)] hover:shadow-[0_0_50px_rgba(232,136,232,0.6)]"
+              >
+                <i className="fas fa-images text-lg" />
+                <span>Explore Gallery</span>
+                <i className="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/join"
+                className="group inline-flex items-center justify-center gap-3 rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-xl px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:border-lavender hover:text-lavender hover:bg-white/10 hover:scale-110 hover:shadow-[0_0_30px_rgba(232,136,232,0.2)]"
+              >
+                <i className="fas fa-user-plus text-lg" />
+                <span>Join the Crew</span>
+                <i className="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform" />
+              </Link>
+              <Link
+                to="/contact"
+                className="group inline-flex items-center justify-center gap-3 rounded-full border-2 border-lavender/50 bg-lavender/10 backdrop-blur-xl px-8 py-4 text-base font-bold text-lavender transition-all duration-300 hover:border-lavender hover:bg-lavender/20 hover:scale-110 hover:shadow-[0_0_30px_rgba(232,136,232,0.3)]"
+              >
+                <i className="fas fa-calendar-check text-lg" />
+                <span>Book Us</span>
+              </Link>
+            </div>
+
+            {/* Stats Bar */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto animate-fade-in-up opacity-0 animation-delay-500">
+              {[
+                { value: '50+', label: 'Events Covered', icon: 'fa-calendar-star' },
+                { value: '30+', label: 'Team Members', icon: 'fa-users' },
+                { value: '10K+', label: 'Photos Delivered', icon: 'fa-camera-retro' },
+                { value: '100+', label: 'Videos Produced', icon: 'fa-clapperboard' }
+              ].map((stat, index) => (
+                <div
+                  key={index}
+                  className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 transition-all duration-300 hover:border-lavender/50 hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_25px_rgba(232,136,232,0.2)]"
                 >
-                  Upcoming Coverage
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-lavender/20 text-lavender">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" className="w-4 h-4">
-                      <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
-                    </svg>
-                  </span>
-                </Link>
-              </div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-lavender/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative z-10 text-center">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-lavender/20 text-lavender mb-3 group-hover:scale-110 group-hover:bg-lavender/30 transition-all duration-300">
+                      <i className={`fas ${stat.icon} text-xl`} />
+                    </div>
+                    <div className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-lavender transition-colors">
+                      {stat.value}
+                    </div>
+                    <div className="text-xs uppercase tracking-wider text-white/60 group-hover:text-white/80 transition-colors">
+                      {stat.label}
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Scroll Indicator */}
-          <div className="mt-20 flex justify-center">
-            <div className="flex flex-col items-center text-white/50 animate-bounce">
-              <span className="text-xs uppercase tracking-[0.4em]">Scroll</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" className="w-4 h-4 mt-2 text-lavender">
-                <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
-              </svg>
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-fade-in-up opacity-0 animation-delay-600">
+            <div className="flex flex-col items-center text-white/50 group cursor-pointer">
+              <span className="text-xs uppercase tracking-[0.4em] mb-2 group-hover:text-lavender transition-colors">
+                Scroll to explore
+              </span>
+              <div className="relative w-6 h-10 rounded-full border-2 border-white/30 group-hover:border-lavender transition-colors">
+                <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-1 h-3 rounded-full bg-lavender/60 animate-bounce" style={{ animationDuration: '2s' }} />
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-10 w-2 h-2 rounded-full bg-lavender/40 animate-pulse" style={{ animationDelay: '0s' }} />
+        <div className="absolute top-40 right-20 w-3 h-3 rounded-full bg-lavender-light/30 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-32 left-20 w-2 h-2 rounded-full bg-lavender/50 animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-20 right-10 w-2 h-2 rounded-full bg-lavender-light/40 animate-pulse" style={{ animationDelay: '1.5s' }} />
       </section>
 
       {/* Stats Counter */}

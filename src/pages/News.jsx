@@ -27,8 +27,10 @@ const News = () => {
       </PageHero>
 
       {/* News Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(238,136,238,0.1),transparent_70%)]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {newsArticles.map((article) => (
               <NewsCard key={article.id} article={article} />
@@ -38,16 +40,22 @@ const News = () => {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-[#1a001a] to-[#330033] border border-lavender/30 p-12 rounded-2xl text-center text-white">
-            <h2 className="text-4xl font-bold mb-4">
-              STAY IN THE LOOP
-            </h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Want to receive updates about our latest projects, events, and opportunities?
-              Follow us on social media to stay connected!
-            </p>
+      <section className="relative py-20 border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(199,160,255,0.1),transparent_70%)]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[#1a001a] via-[#220022] to-[#330033] border border-lavender/30 p-12 rounded-2xl text-center text-white backdrop-blur-xl shadow-[0_0_30px_rgba(232,136,232,0.2)]">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(238,136,238,0.1),transparent_60%)]" />
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
+                <span className="bg-gradient-to-r from-white via-lavender-light to-white bg-clip-text text-transparent">
+                  STAY IN THE LOOP
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto text-white/90">
+                Want to receive updates about our latest projects, events, and opportunities?
+                Follow us on social media to stay connected!
+              </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="https://instagram.com"
@@ -104,6 +112,7 @@ const News = () => {
                   <path d="M100.28 448H7.4V148.9h92.88zM53.84 108C24.13 108 0 83.87 0 54.09A54.09 54.09 0 0 1 53.84 0a54.12 54.12 0 0 1 54.45 54.09c0 29.78-24.13 53.91-54.45 53.91zM447.9 448h-92.68V302.4c0-34.7-.7-79.24-48.31-79.24-48.38 0-55.79 37.8-55.79 76.9V448h-92.68V148.9h88.96v40.8h1.28c12.4-23.5 42.68-48.31 87.84-48.31 93.84 0 111.08 61.76 111.08 142.3V448z" />
                 </svg>
               </a>
+            </div>
             </div>
           </div>
         </div>

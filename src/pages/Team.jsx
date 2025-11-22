@@ -149,25 +149,32 @@ const Team = () => {
       </PageHero>
 
       {/* Team Stats */}
-      <section className="py-12 border-y border-white/10">
-        <div className="container mx-auto px-6">
+      <section className="relative py-16 border-y border-white/10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(238,136,238,0.1),transparent_70%)]" />
+        <div className="relative z-10 container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            <div className="p-6 rounded-xl bg-gradient-to-br from-gray-950/60 to-gray-950/40 border border-lavender/20">
-              <div className="text-4xl font-bold text-lavender mb-2">{totalMembers}</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wider">Team Members</div>
-            </div>
-            <div className="p-6 rounded-xl bg-gradient-to-br from-gray-950/60 to-gray-950/40 border border-lavender/20">
-              <div className="text-4xl font-bold text-lavender mb-2">{totalTeams}</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wider">Departments</div>
-            </div>
-            <div className="p-6 rounded-xl bg-gradient-to-br from-gray-950/60 to-gray-950/40 border border-lavender/20">
-              <div className="text-4xl font-bold text-lavender mb-2">{organizedTeam.marketing.length + organizedTeam.outreach.length + organizedTeam.events.length}</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wider">Creative Roles</div>
-            </div>
-            <div className="p-6 rounded-xl bg-gradient-to-br from-gray-950/60 to-gray-950/40 border border-lavender/20">
-              <div className="text-4xl font-bold text-lavender mb-2">100%</div>
-              <div className="text-sm text-gray-400 uppercase tracking-wider">Student-Led</div>
-            </div>
+            {[
+              { value: totalMembers, label: 'Team Members' },
+              { value: totalTeams, label: 'Departments' },
+              { value: organizedTeam.marketing.length + organizedTeam.outreach.length + organizedTeam.events.length, label: 'Creative Roles' },
+              { value: '100%', label: 'Student-Led' }
+            ].map((stat, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden p-6 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-lavender/50 hover:bg-white/10 hover:scale-105 hover:shadow-[0_0_30px_rgba(232,136,232,0.3)]"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-lavender/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative z-10">
+                  <div className="text-4xl font-bold text-lavender mb-2 group-hover:text-lavender-light transition-colors">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-white/60 uppercase tracking-wider group-hover:text-white/80 transition-colors">
+                    {stat.label}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -253,9 +260,13 @@ const Team = () => {
       </div>
 
       {/* Call to Action */}
-      <section className="py-16 border-t border-white/10">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-3xl mx-auto p-12 rounded-2xl bg-gradient-to-br from-gray-950/80 to-gray-950/60 border border-lavender/30">
+      <section className="relative py-20 border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(199,160,255,0.1),transparent_70%)]" />
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto p-12 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-lavender/50 hover:shadow-[0_0_30px_rgba(232,136,232,0.3)]">
+            <div className="absolute inset-0 bg-gradient-to-br from-lavender/10 to-transparent rounded-2xl opacity-50" />
+            <div className="relative z-10">
             <h2 className="text-3xl font-bold text-[#e8e] mb-4">Join Our Creative Crew</h2>
             <p className="text-gray-400 mb-8 leading-relaxed">
               Passionate about media, storytelling, or creative production? We're always looking for talented individuals to join our team and help capture the moments that matter.
@@ -269,6 +280,7 @@ const Team = () => {
                 <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
               </svg>
             </Link>
+            </div>
           </div>
         </div>
       </section>

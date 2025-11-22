@@ -54,11 +54,13 @@ const Contact = () => {
       </PageHero>
 
       {/* Contact Content */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(238,136,238,0.1),transparent_70%)]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Form */}
-            <div className="bg-gray-950/60 border border-lavender/30 p-8 rounded-lg">
+            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl transition-all duration-300 hover:border-lavender/50 hover:shadow-[0_0_30px_rgba(232,136,232,0.2)]">
               <h2 className="text-3xl font-bold text-lavender mb-6">
                 SEND US A MESSAGE
               </h2>
@@ -74,7 +76,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black border border-lavender/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender text-white"
+                    className="w-full px-4 py-3 bg-black/40 backdrop-blur-sm border border-lavender/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-lavender text-white transition-all duration-300"
                     placeholder="Your full name"
                   />
                 </div>
@@ -90,7 +92,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black border border-lavender/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender text-white"
+                    className="w-full px-4 py-3 bg-black/40 backdrop-blur-sm border border-lavender/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-lavender text-white transition-all duration-300"
                     placeholder="your.email@example.com"
                   />
                 </div>
@@ -106,7 +108,7 @@ const Contact = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-black border border-lavender/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender text-white"
+                    className="w-full px-4 py-3 bg-black/40 backdrop-blur-sm border border-lavender/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lavender focus:border-lavender text-white transition-all duration-300"
                     placeholder="What is this regarding?"
                   />
                 </div>
@@ -129,7 +131,7 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-lavender hover:bg-lavender-light text-black font-semibold py-4 rounded-full transition hover:scale-105 shadow-lg"
+                  className="w-full bg-lavender hover:bg-lavender-light text-black font-bold py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-[0_0_25px_rgba(232,136,232,0.35)] hover:shadow-[0_0_35px_rgba(232,136,232,0.5)]"
                 >
                   Send Message
                 </button>
@@ -138,7 +140,7 @@ const Contact = () => {
 
             {/* Contact Information */}
             <div>
-              <div className="bg-gray-950/60 border border-lavender/30 p-8 rounded-lg mb-6">
+              <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-2xl mb-6 transition-all duration-300 hover:border-lavender/50 hover:shadow-[0_0_30px_rgba(232,136,232,0.2)]">
                 <h2 className="text-3xl font-bold text-lavender mb-6">
                   CONTACT INFO
                 </h2>
@@ -185,7 +187,9 @@ const Contact = () => {
               </div>
 
               {/* Social Links */}
-              <div className="bg-gradient-to-r from-[#1a001a] to-[#330033] border border-lavender/30 p-8 rounded-lg text-white">
+              <div className="relative overflow-hidden bg-gradient-to-br from-[#1a001a] via-[#220022] to-[#330033] border border-lavender/30 p-8 rounded-2xl text-white backdrop-blur-xl shadow-[0_0_30px_rgba(232,136,232,0.2)]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(238,136,238,0.1),transparent_60%)]" />
+                <div className="relative z-10">
                 <h2 className="text-2xl font-bold mb-4">FOLLOW US</h2>
                 <p className="mb-6 text-white/80">
                   Stay connected with us on social media for the latest updates, photos, and behind-the-scenes content.
@@ -246,6 +250,7 @@ const Contact = () => {
                       <path d="M100.28 448H7.4V148.9h92.88zM53.84 108C24.13 108 0 83.87 0 54.09A54.09 54.09 0 0 1 53.84 0a54.12 54.12 0 0 1 54.45 54.09c0 29.78-24.13 53.91-54.45 53.91zM447.9 448h-92.68V302.4c0-34.7-.7-79.24-48.31-79.24-48.38 0-55.79 37.8-55.79 76.9V448h-92.68V148.9h88.96v40.8h1.28c12.4-23.5 42.68-48.31 87.84-48.31 93.84 0 111.08 61.76 111.08 142.3V448z" />
                     </svg>
                   </a>
+                </div>
                 </div>
               </div>
             </div>

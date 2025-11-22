@@ -55,8 +55,10 @@ const Upcoming = () => {
       </section>
 
       {/* Events Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(238,136,238,0.1),transparent_70%)]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {upcomingEvents.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {upcomingEvents.map((event) => (
@@ -65,29 +67,37 @@ const Upcoming = () => {
             </div>
           ) : (
             <div className="text-center py-16">
-              <p className="text-xl text-white/60">
-                No upcoming events at the moment. Check back soon!
-              </p>
+              <div className="inline-block bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl px-8 py-6">
+                <p className="text-xl text-white/80">
+                  No upcoming events at the moment. Check back soon!
+                </p>
+              </div>
             </div>
           )}
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-lavender mb-6">
-            WANT US TO COVER YOUR EVENT?
+      <section className="relative py-20 border-t border-white/10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(199,160,255,0.1),transparent_70%)]" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">
+            <span className="bg-gradient-to-r from-white via-lavender-light to-white bg-clip-text text-transparent">
+              WANT US TO COVER YOUR EVENT?
+            </span>
           </h2>
-          <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto">
             We provide professional photography and videography services for student organizations
             and campus events. Reach out to discuss your needs!
           </p>
           <Link
             to="/contact"
-            className="inline-block bg-lavender hover:bg-lavender-light text-black font-semibold py-3 px-6 rounded-full transition hover:scale-105"
+            className="group inline-flex items-center justify-center gap-3 bg-lavender hover:bg-lavender-light text-black font-bold py-4 px-8 rounded-full transition-all duration-300 hover:scale-110 shadow-[0_0_25px_rgba(232,136,232,0.35)] hover:shadow-[0_0_35px_rgba(232,136,232,0.5)]"
           >
-            Contact Us
+            <i className="fas fa-calendar-check" />
+            <span>Contact Us</span>
+            <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>
