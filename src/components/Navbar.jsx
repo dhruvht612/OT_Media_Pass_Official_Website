@@ -47,18 +47,33 @@ const Navbar = () => {
     <nav className={`fixed top-0 z-50 w-full text-white transition-all duration-300 ${
       isScrolled ? 'shadow-2xl shadow-lavender/20' : ''
     }`}>
-      {/* Background Layers */}
+      {/* Glass Background Layers */}
       <div className="pointer-events-none absolute inset-0">
-        <div className={`absolute inset-0 backdrop-blur-xl border-b transition-all duration-300 ${
+        {/* Main glass effect with backdrop blur */}
+        <div className={`absolute inset-0 backdrop-blur-2xl border-b transition-all duration-300 ${
           isScrolled 
-            ? 'bg-gradient-to-b from-black/98 via-[#0a000a]/95 to-black/98 border-white/20' 
-            : 'bg-gradient-to-b from-black/90 via-[#0a000a]/80 to-black/90 border-white/10'
-        }`} />
-        {/* Radial gradient overlay */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(238,136,238,0.15),transparent_60%)]" />
+            ? 'bg-gradient-to-b from-black/40 via-black/30 to-black/40 border-white/20' 
+            : 'bg-gradient-to-b from-black/30 via-black/20 to-black/30 border-white/10'
+        }`} 
+        style={{
+          background: isScrolled 
+            ? 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(10,0,10,0.3), rgba(0,0,0,0.4))'
+            : 'linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(10,0,10,0.2), rgba(0,0,0,0.3))',
+          boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1)'
+        }} />
+        
+        {/* Glass reflection effect */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-50" />
+        
+        {/* Radial gradient overlay for depth */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(238,136,238,0.1),transparent_60%)]" />
+        
+        {/* Subtle glass highlight at top */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        
         {/* Pulsing gradient orb */}
         <div className={`absolute top-0 right-1/4 h-32 w-32 rounded-full bg-lavender/10 blur-2xl transition-opacity duration-300 ${
-          isScrolled ? 'opacity-50' : 'opacity-100 animate-pulse'
+          isScrolled ? 'opacity-30' : 'opacity-60 animate-pulse'
         }`} style={{ animationDuration: '4s' }} />
       </div>
       <div className="relative">
@@ -96,7 +111,7 @@ const Navbar = () => {
                   className={linkClasses(link.path)}
                   title={link.label}
                 >
-                  <span className="relative z-10 flex items-center gap-2">
+                  <span className="relative z-10 flex items-center gap-2 backdrop-blur-sm">
                     <i className={`fas ${link.icon} text-xs`} />
                     <span>{link.label}</span>
                   </span>
@@ -111,14 +126,15 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-3">
               <Link
                 to="/join"
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white transition-all duration-300 hover:bg-white/20 hover:scale-105 hover:shadow-lg hover:shadow-white/10"
+                className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-white transition-all duration-300 hover:bg-white/20 hover:border-white/30 hover:scale-105 hover:shadow-lg hover:shadow-white/10"
+                style={{ boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1)' }}
               >
                 Join Us
                 <i className="fas fa-arrow-right text-[10px] transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-lavender px-5 py-2 text-sm font-semibold text-black transition-all duration-300 hover:bg-lavender-light hover:scale-105 shadow-[0_0_25px_rgba(232,136,232,0.35)] hover:shadow-[0_0_35px_rgba(232,136,232,0.5)]"
+                className="inline-flex items-center gap-2 rounded-full bg-lavender backdrop-blur-sm px-5 py-2 text-sm font-semibold text-black transition-all duration-300 hover:bg-lavender-light hover:scale-105 shadow-[0_0_25px_rgba(232,136,232,0.35)] hover:shadow-[0_0_35px_rgba(232,136,232,0.5)]"
               >
                 Book Us
                 <i className="fas fa-calendar-check text-xs" />
@@ -128,7 +144,8 @@ const Navbar = () => {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-lavender text-xl transition-all duration-300 hover:bg-white/20 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-lavender/60"
+              className="md:hidden flex h-10 w-10 items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-lavender text-xl transition-all duration-300 hover:bg-white/20 hover:border-white/30 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-lavender/60"
+              style={{ boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1)' }}
               aria-label="Toggle navigation menu"
             >
               <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} transition-transform duration-300`}></i>
@@ -140,8 +157,13 @@ const Navbar = () => {
         <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
           isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="border-t border-white/10 bg-gradient-to-b from-black/98 via-[#0a000a]/95 to-black/98 backdrop-blur-xl">
+          <div className="border-t border-white/20 bg-gradient-to-b from-black/40 via-black/30 to-black/40 backdrop-blur-2xl"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(10,0,10,0.3), rgba(0,0,0,0.4))',
+              boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1)'
+            }}>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(238,136,238,0.1),transparent_60%)]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-50" />
             <div className="relative z-10">
             <div className="px-4 py-4 space-y-2">
               {navLinks.map((link, index) => (
@@ -166,7 +188,8 @@ const Navbar = () => {
                 <Link
                   to="/join"
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-full bg-white/10 px-4 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition-all duration-300 hover:bg-white/20 hover:scale-105"
+                  className="block rounded-full bg-white/10 backdrop-blur-md border border-white/20 px-4 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition-all duration-300 hover:bg-white/20 hover:border-white/30 hover:scale-105"
+                  style={{ boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1)' }}
                 >
                   <span className="flex items-center justify-center gap-2">
                     <i className="fas fa-user-plus" />
@@ -176,7 +199,7 @@ const Navbar = () => {
                 <Link
                   to="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-full bg-lavender px-4 py-3 text-sm font-semibold text-black transition-all duration-300 hover:bg-lavender-light hover:scale-105 shadow-[0_0_20px_rgba(232,136,232,0.35)]"
+                  className="block rounded-full bg-lavender backdrop-blur-sm px-4 py-3 text-sm font-semibold text-black transition-all duration-300 hover:bg-lavender-light hover:scale-105 shadow-[0_0_20px_rgba(232,136,232,0.35)]"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <i className="fas fa-calendar-check" />

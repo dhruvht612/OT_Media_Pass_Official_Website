@@ -13,7 +13,7 @@ export const openPositions = [
       'Ability to create responsive designs',
       'Knowledge of accessibility standards'
     ],
-    responsibilities: [
+    responsibilities: [ 
       'Design user interfaces for web and mobile',
       'Create wireframes, mockups, and prototypes',
       'Improve user experience and usability',

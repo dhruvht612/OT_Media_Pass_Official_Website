@@ -1,8 +1,63 @@
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import teamPhoto from '../assets/Team_Pictures/Team_Pic.jpg';
 import logo from '../assets/Logo.png';
 
 const Home = () => {
+  const [showScrollButton, setShowScrollButton] = useState(true);
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const handleScrollToNext = useCallback(() => {
+    setIsScrolling(true);
+    const nextSection = document.querySelector('#core-capabilities');
+    if (nextSection) {
+      const offset = 80; // Account for navbar
+      const elementPosition = nextSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    } else {
+      window.scrollTo({ top: window.innerHeight * 1.2, behavior: 'smooth' });
+    }
+
+    // Reset scrolling state after animation
+    setTimeout(() => setIsScrolling(false), 1000);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const heroHeight = window.innerHeight;
+      
+      // Hide button when scrolled past hero section
+      if (scrollPosition > heroHeight * 0.8) {
+        setShowScrollButton(false);
+      } else {
+        setShowScrollButton(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+        if (window.scrollY < window.innerHeight * 0.5) {
+          e.preventDefault();
+          handleScrollToNext();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [handleScrollToNext]);
+
   return (
     <div className="bg-gradient-to-b from-black via-[#120012] to-black text-white">
       {/* Hero Section */}
@@ -87,10 +142,10 @@ const Home = () => {
             {/* Stats Bar */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto animate-fade-in-up opacity-0 animation-delay-500">
               {[
-                { value: '50+', label: 'Events Covered', icon: 'fa-calendar-star' },
-                { value: '30+', label: 'Team Members', icon: 'fa-users' },
-                { value: '10K+', label: 'Photos Delivered', icon: 'fa-camera-retro' },
-                { value: '100+', label: 'Videos Produced', icon: 'fa-clapperboard' }
+                { value: '50+', label: 'Events Covered', icon: 'calendar' },
+                { value: '30+', label: 'Creative Contributors', icon: 'users' },
+                { value: '10K+', label: 'Photos Delivered', icon: 'camera' },
+                { value: '100+', label: 'Videos Produced', icon: 'video' }
               ].map((stat, index) => (
                 <div
                   key={index}
@@ -99,7 +154,26 @@ const Home = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-lavender/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="relative z-10 text-center">
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-lavender/20 text-lavender mb-3 group-hover:scale-110 group-hover:bg-lavender/30 transition-all duration-300">
-                      <i className={`fas ${stat.icon} text-xl`} />
+                      {stat.icon === 'calendar' && (
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" className="w-6 h-6">
+                          <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm305.1 97.1c-4.2-8.2-12.4-13.1-21.5-13.1s-17.3 4.9-21.5 13.1L240 352l-57.1-63.9c-4.2-8.2-12.4-13.1-21.5-13.1s-17.3 4.9-21.5 13.1l-22.4 44.8c-5.4 10.8 2.1 23.9 13.9 23.9H208v48c0 17.7 14.3 32 32 32s32-14.3 32-32V416h64c11.8 0 19.3-13.1 13.9-23.9l-22.4-44.8z"/>
+                        </svg>
+                      )}
+                      {stat.icon === 'users' && (
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 640 512" className="w-6 h-6">
+                          <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.2 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7V320c0 11.4-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/>
+                        </svg>
+                      )}
+                      {stat.icon === 'camera' && (
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512" className="w-6 h-6">
+                          <path d="M220.6 121.2L271.1 96 448 96v320H271.1l-50.5-25.2L64 376V280l156.5-78.3L220.6 121.2zM48 141.1l192 96v94.9l-192-96V141.1zM464 64H336l-33.6 44.8L368 128l-33.3 44.4L368 216l33.3-44.4L464 216V64zM48 64v80l128-64L48 64z"/>
+                        </svg>
+                      )}
+                      {stat.icon === 'video' && (
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512" className="w-6 h-6">
+                          <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3v178.8A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0h88a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"/>
+                        </svg>
+                      )}
                     </div>
                     <div className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-lavender transition-colors">
                       {stat.value}
@@ -114,16 +188,34 @@ const Home = () => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-fade-in-up opacity-0 animation-delay-600">
-            <div className="flex flex-col items-center text-white/50 group cursor-pointer">
-              <span className="text-xs uppercase tracking-[0.4em] mb-2 group-hover:text-lavender transition-colors">
-                Scroll to explore
-              </span>
-              <div className="relative w-6 h-10 rounded-full border-2 border-white/30 group-hover:border-lavender transition-colors">
-                <div className="absolute top-2 left-1/2 transform -translate-x-1/2 w-1 h-3 rounded-full bg-lavender/60 animate-bounce" style={{ animationDuration: '2s' }} />
-              </div>
+          {showScrollButton && (
+            <div className={`mt-16 flex justify-center transition-all duration-500 ${
+              showScrollButton ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+            }`}>
+              <button
+                onClick={handleScrollToNext}
+                onMouseEnter={() => setIsScrolling(false)}
+                disabled={isScrolling}
+                className="flex flex-col items-center text-white/50 group cursor-pointer transition-all duration-300 hover:text-lavender hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label="Scroll to next section"
+                title="Scroll down or press Arrow Down"
+              >
+                <span className="text-xs uppercase tracking-[0.4em] mb-3 group-hover:text-lavender transition-colors group-hover:translate-y-[-2px] inline-block">
+                  Scroll to explore
+                </span>
+                <div className={`relative w-6 h-10 rounded-full border-2 border-white/30 group-hover:border-lavender transition-all duration-300 ${
+                  isScrolling ? 'scale-95' : ''
+                }`}>
+                  <div className={`absolute top-2 left-1/2 transform -translate-x-1/2 w-1.5 h-4 rounded-full bg-lavender/70 group-hover:bg-lavender transition-colors ${
+                    isScrolling ? 'animate-none opacity-50' : 'animate-bounce'
+                  }`} style={{ animationDuration: '2s' }} />
+                </div>
+                <div className="mt-2 text-[10px] text-white/30 group-hover:text-white/50 transition-colors">
+                  ↓ Press Arrow Down
+                </div>
+              </button>
             </div>
-          </div>
+          )}
         </div>
 
         {/* Decorative Elements */}
@@ -133,53 +225,8 @@ const Home = () => {
         <div className="absolute bottom-20 right-10 w-2 h-2 rounded-full bg-lavender-light/40 animate-pulse" style={{ animationDelay: '1.5s' }} />
       </section>
 
-      {/* Stats Counter */}
-      <section className="relative py-16">
-        <div className="absolute inset-x-10 -top-12 -bottom-12 rounded-3xl border border-white/10 bg-white/5 blur-3xl" />
-        <div className="relative max-w-6xl mx-auto px-6">
-          <div className="grid gap-8 md:grid-cols-4">
-            {[
-              { value: '50+', label: 'Events Covered', icon: 'fa-calendar-star' },
-              { value: '30+', label: 'Creative Contributors', icon: 'fa-users' },
-              { value: '10K+', label: 'Photos Delivered', icon: 'fa-camera-retro' },
-              { value: '100+', label: 'Videos Produced', icon: 'fa-clapperboard' }
-            ].map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-2xl border border-white/10 bg-white/5 px-6 py-8 text-center shadow-[0_15px_40px_rgba(0,0,0,0.35)] backdrop-blur-sm"
-              >
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-lavender/20 text-lavender mb-4">
-                  {stat.icon === 'fa-calendar-star' && (
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" className="w-6 h-6">
-                      <path d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm305.1 97.1c-4.2-8.2-12.4-13.1-21.5-13.1s-17.3 4.9-21.5 13.1L240 352l-57.1-63.9c-4.2-8.2-12.4-13.1-21.5-13.1s-17.3 4.9-21.5 13.1l-22.4 44.8c-5.4 10.8 2.1 23.9 13.9 23.9H208v48c0 17.7 14.3 32 32 32s32-14.3 32-32V416h64c11.8 0 19.3-13.1 13.9-23.9l-22.4-44.8z"/>
-                    </svg>
-                  )}
-                  {stat.icon === 'fa-users' && (
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 640 512" className="w-6 h-6">
-                      <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.2 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7V320c0 11.4-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/>
-                    </svg>
-                  )}
-                  {stat.icon === 'fa-camera-retro' && (
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512" className="w-6 h-6">
-                      <path d="M220.6 121.2L271.1 96 448 96v320H271.1l-50.5-25.2L64 376V280l156.5-78.3L220.6 121.2zM48 141.1l192 96v94.9l-192-96V141.1zM464 64H336l-33.6 44.8L368 128l-33.3 44.4L368 216l33.3-44.4L464 216V64zM48 64v80l128-64L48 64z"/>
-                    </svg>
-                  )}
-                  {stat.icon === 'fa-clapperboard' && (
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512" className="w-6 h-6">
-                      <path d="M448 32H361.9l-1 1-127 127h92.1l1-1L453.8 32.3c-1.9-.2-3.8-.3-5.8-.3zm64 128H96l-64 64V384c0 35.3 28.7 64 64 64H416c35.3 0 64-28.7 64-64V160z"/>
-                    </svg>
-                  )}
-                </div>
-                <div className="text-4xl font-bold text-white">{stat.value}</div>
-                <div className="mt-2 text-sm text-white/70">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Core Capabilities */}
-      <section className="max-w-7xl mx-auto py-24 px-6">
+      <section id="core-capabilities" className="max-w-7xl mx-auto py-24 px-6">
         <div className="text-center max-w-3xl mx-auto">
           <span className="text-xs uppercase tracking-[0.35em] text-white/60">What We Deliver</span>
           <h2 className="mt-4 text-3xl md:text-4xl font-bold text-white leading-tight">
