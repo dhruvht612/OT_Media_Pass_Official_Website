@@ -1,35 +1,38 @@
 const TeamCard = ({ member }) => {
   return (
-    <div className="group relative bg-gradient-to-br from-gray-950/80 via-gray-950/60 to-gray-950/80 border border-[#e8e]/30 rounded-2xl shadow-lg p-6 text-center hover:shadow-[0_0_30px_rgba(238,136,238,0.4)] hover:border-[#e8e]/80 transition-all duration-500 hover:-translate-y-3 overflow-hidden">
+    <div className="group relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-lg p-6 text-center hover:shadow-[0_0_40px_rgba(232,136,232,0.4)] hover:border-lavender/50 transition-all duration-500 hover:-translate-y-3 overflow-hidden">
       {/* Animated background gradient on hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-lavender/0 via-lavender/0 to-lavender/0 group-hover:from-lavender/5 group-hover:via-lavender/10 group-hover:to-lavender/5 transition-all duration-500 rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-lavender/0 via-lavender/0 to-lavender/0 group-hover:from-lavender/10 group-hover:via-lavender/15 group-hover:to-lavender/10 transition-all duration-500 rounded-2xl" />
+      
+      {/* Glass reflection effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
       
       {/* Glow effect */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-lavender/0 via-[#e8e]/0 to-lavender/0 group-hover:from-lavender/20 group-hover:via-[#e8e]/30 group-hover:to-lavender/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+      <div className="absolute -inset-0.5 bg-gradient-to-r from-lavender/0 via-lavender-light/0 to-lavender/0 group-hover:from-lavender/30 group-hover:via-lavender-light/40 group-hover:to-lavender/30 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
       
       <div className="relative z-10">
         <div className="relative inline-block mb-4">
-          <div className="absolute inset-0 bg-gradient-to-br from-lavender/30 to-[#e8e]/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-br from-lavender/30 to-lavender-light/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           {member.image ? (
             <img
               src={member.image}
               alt={member.name}
-              className="relative w-32 h-32 object-cover rounded-full mx-auto border-2 border-[#e8e]/50 group-hover:border-[#e8e] transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-lavender/30"
+              className="relative w-32 h-32 object-cover rounded-full mx-auto border-2 border-white/20 group-hover:border-lavender/50 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-lavender/40 backdrop-blur-sm"
             />
           ) : (
-            <div className="relative w-32 h-32 rounded-full mx-auto border-2 border-[#e8e]/50 group-hover:border-[#e8e] transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-lavender/30 bg-gradient-to-br from-lavender/20 to-[#e8e]/20 flex items-center justify-center">
+            <div className="relative w-32 h-32 rounded-full mx-auto border-2 border-white/20 group-hover:border-lavender/50 transition-all duration-500 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-lavender/40 bg-gradient-to-br from-lavender/20 to-lavender-light/20 backdrop-blur-sm flex items-center justify-center">
               <span className="text-3xl font-bold text-lavender">{member.name.charAt(0).toUpperCase()}</span>
             </div>
           )}
         </div>
-        <h3 className="text-xl font-bold text-[#e8e] mb-1 group-hover:text-lavender transition-colors duration-300">{member.name}</h3>
-        <p className="text-gray-400 text-sm mb-2">{member.role}</p>
-        <p className="text-gray-500 text-xs mb-3">{member.program}</p>
-        <p className="text-gray-300 text-sm mt-3 italic leading-relaxed min-h-[3rem]">{member.bio}</p>
+        <h3 className="text-xl font-bold text-white mb-1 group-hover:text-lavender transition-colors duration-300">{member.name}</h3>
+        <p className="text-white/70 text-sm mb-2 font-medium">{member.role}</p>
+        <p className="text-white/50 text-xs mb-4">{member.program}</p>
+        <p className="text-white/80 text-sm mt-3 italic leading-relaxed min-h-[3rem]">{member.bio}</p>
         
         {/* Social Links */}
         {member.socials && (
-          <div className="flex justify-center space-x-4 mt-5 pt-4 border-t border-[#e8e]/10 group-hover:border-[#e8e]/30 transition-colors duration-300">
+          <div className="flex justify-center space-x-4 mt-5 pt-4 border-t border-white/10 group-hover:border-lavender/30 transition-colors duration-300">
           {member.socials.linkedin && (
             <a 
               href={member.socials.linkedin} 

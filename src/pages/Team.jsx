@@ -2,9 +2,11 @@ import { teamMembers } from '../data/team';
 import TeamCard from '../components/TeamCard';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Team = () => {
+  const [activeFilter, setActiveFilter] = useState('all');
+  
   // Organize team members by role/team
   const organizeTeam = () => {
     const organized = {
@@ -70,41 +72,40 @@ const Team = () => {
     if (members.length === 0) return null;
     
     return (
-      <section className="mb-20 relative">
+      <section className="mb-20 relative py-12">
         {/* Section divider with gradient */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-lavender/50 to-transparent mb-12" />
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-lavender/50 to-transparent mb-12" />
         
-        <div className="container mx-auto px-6 pt-12">
-          <div className="text-center mb-12">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12 animate-fade-in-up opacity-0 animation-delay-100">
             <div className="inline-flex items-center justify-center gap-3 mb-4">
               {icon && (
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-lavender/20 to-[#e8e]/20 flex items-center justify-center border border-lavender/30">
+                <div className="w-14 h-14 rounded-full bg-gradient-to-br from-lavender/20 to-lavender-light/20 backdrop-blur-sm flex items-center justify-center border border-lavender/30 shadow-[0_0_20px_rgba(232,136,232,0.2)] group-hover:shadow-[0_0_30px_rgba(232,136,232,0.4)] transition-all duration-300">
                   {icon}
                 </div>
               )}
-              <h2 className="text-4xl font-bold bg-gradient-to-r from-[#e8e] via-lavender to-[#e8e] bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white via-lavender-light to-white bg-clip-text text-transparent">
                 {title}
               </h2>
             </div>
             {description && (
-              <p className="text-gray-400 text-base max-w-2xl mx-auto leading-relaxed text-center">
+              <p className="text-white/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed text-center mt-4">
                 {description}
               </p>
             )}
-            <div className="mt-4 text-sm text-gray-500 text-center">
-              {members.length} {members.length === 1 ? 'member' : 'members'}
+            <div className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-white/60">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 640 512" className="w-4 h-4 text-lavender">
+                <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.2 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7V320c0 11.4-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/>
+              </svg>
+              <span>{members.length} {members.length === 1 ? 'member' : 'members'}</span>
             </div>
           </div>
-          <div 
-            className="flex flex-wrap justify-center gap-8"
-            data-aos="fade-up"
-          >
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             {members.map((member, index) => (
               <div
                 key={member.id}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm"
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] xl:w-[calc(25%-1.5rem)] max-w-sm animate-fade-in-up opacity-0"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <TeamCard member={member} />
               </div>
@@ -116,7 +117,13 @@ const Team = () => {
   };
 
   return (
-    <div className="pt-24 text-white bg-gradient-to-b from-black via-[#120012] to-black">
+    <div className="pt-24 text-white bg-gradient-to-b from-black via-[#120012] to-black relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 rounded-full bg-lavender/40 animate-pulse-slow" style={{ animationDelay: '0s' }} />
+        <div className="absolute top-1/2 right-1/4 w-3 h-3 rounded-full bg-lavender-light/30 animate-pulse-slow" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-1/4 left-1/3 w-2 h-2 rounded-full bg-lavender/50 animate-pulse-slow" style={{ animationDelay: '2s' }} />
+      </div>
       <PageHero
         eyebrow="Creative Crew"
         title="Meet the People Behind the Lens"
@@ -149,16 +156,17 @@ const Team = () => {
       </PageHero>
 
       {/* Team Stats */}
-      <section className="relative py-16 border-y border-white/10 overflow-hidden">
+      <section className="relative py-20 border-y border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(238,136,238,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(199,160,255,0.08),transparent_60%)]" />
         <div className="relative z-10 container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { value: totalMembers, label: 'Team Members' },
-              { value: totalTeams, label: 'Departments' },
-              { value: organizedTeam.marketing.length + organizedTeam.outreach.length + organizedTeam.events.length, label: 'Creative Roles' },
-              { value: '100%', label: 'Student-Led' }
+              { value: totalMembers, label: 'Team Members', icon: 'users' },
+              { value: totalTeams, label: 'Departments', icon: 'building' },
+              { value: organizedTeam.marketing.length + organizedTeam.outreach.length + organizedTeam.events.length, label: 'Creative Roles', icon: 'lightbulb' },
+              { value: '100%', label: 'Student-Led', icon: 'graduation' }
             ].map((stat, index) => (
               <div
                 key={index}
@@ -166,6 +174,28 @@ const Team = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-lavender/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="relative z-10">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-lavender/20 text-lavender mb-3 group-hover:scale-110 group-hover:bg-lavender/30 transition-all duration-300">
+                    {stat.icon === 'users' && (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 640 512" className="w-6 h-6">
+                        <path d="M144 0a80 80 0 1 1 0 160A80 80 0 1 1 144 0zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zM0 298.7C0 239.8 47.8 192 106.7 192h42.7c15.9 0 31 3.5 44.6 9.7c-1.3 7.2-1.9 14.7-1.9 22.3c0 38.2 16.8 72.5 43.3 96c-.2 0-.4 0-.7 0H21.3C9.6 320 0 310.4 0 298.7zM405.3 320c-.2 0-.4 0-.7 0c26.6-23.5 43.3-57.8 43.3-96c0-7.6-.7-15-1.9-22.3c13.6-6.2 28.7-9.7 44.6-9.7h42.7C592.2 192 640 239.8 640 298.7V320c0 11.4-9.6 21.3-21.3 21.3H405.3zM224 224a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zM128 485.3C128 411.7 187.7 352 261.3 352H378.7C452.3 352 512 411.7 512 485.3c0 14.7-11.9 26.7-26.7 26.7H154.7c-14.7 0-26.7-11.9-26.7-26.7z"/>
+                      </svg>
+                    )}
+                    {stat.icon === 'building' && (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 384 512" className="w-6 h-6">
+                        <path d="M48 0C21.5 0 0 21.5 0 48V464c0 26.5 21.5 48 48 48h96V432c0-26.5 21.5-48 48-48s48 21.5 48 48v80h96c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H48zM64 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V240zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V240zM80 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V112zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16z"/>
+                      </svg>
+                    )}
+                    {stat.icon === 'lightbulb' && (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 384 512" className="w-6 h-6">
+                        <path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/>
+                      </svg>
+                    )}
+                    {stat.icon === 'graduation' && (
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 640 512" className="w-6 h-6">
+                        <path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L219.8 64 98.4 64C78.2 64 64 78.2 64 98.4L64 198.4c0 8.5 3.2 16.6 8.9 22.9L32 288 32 352c0 17.7 14.3 32 32 32l64.7 0c7.6 89.4 80.2 160 169.3 160s161.7-70.6 169.3-160L544 384c17.7 0 32-14.3 32-32l0-64-40.9-66.7c5.7-6.3 8.9-14.4 8.9-22.9L544 98.4c0-20.2-14.2-34.4-34.4-34.4L388.2 64 343.7 36.1C336.1 33.4 328.1 32 320 32zM98.4 96l121.4 0 54.4 27.9c3.9 2 8.1 3.1 12.4 3.1s8.5-1.1 12.4-3.1L365.8 96l154.2 0 0 102.4-192 112L96 198.4 96 96l2.4 0zM169.3 352L320 352l0 128c-44.2 0-80-35.8-80-80l0-48-30.7 0zM64 416l0 32c0 17.7 14.3 32 32 32l64 0 0-64L96 384c-17.7 0-32 14.3-32 32zm512 32l0-32c0-17.7-14.3-32-32-32l-64 0 0 64 64 0c17.7 0 32-14.3 32-32z"/>
+                      </svg>
+                    )}
+                  </div>
                   <div className="text-4xl font-bold text-lavender mb-2 group-hover:text-lavender-light transition-colors">
                     {stat.value}
                   </div>
@@ -260,26 +290,34 @@ const Team = () => {
       </div>
 
       {/* Call to Action */}
-      <section className="relative py-20 border-t border-white/10 overflow-hidden">
+      <section className="relative py-24 border-t border-white/10 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a000a] to-black" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(199,160,255,0.1),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(238,136,238,0.08),transparent_60%)]" />
         <div className="relative z-10 container mx-auto px-6 text-center">
-          <div className="max-w-3xl mx-auto p-12 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-lavender/50 hover:shadow-[0_0_30px_rgba(232,136,232,0.3)]">
-            <div className="absolute inset-0 bg-gradient-to-br from-lavender/10 to-transparent rounded-2xl opacity-50" />
+          <div className="max-w-3xl mx-auto p-12 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-300 hover:border-lavender/50 hover:shadow-[0_0_40px_rgba(232,136,232,0.4)] hover:scale-[1.02] group">
+            <div className="absolute inset-0 bg-gradient-to-br from-lavender/10 via-transparent to-lavender-light/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <div className="relative z-10">
-            <h2 className="text-3xl font-bold text-[#e8e] mb-4">Join Our Creative Crew</h2>
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              Passionate about media, storytelling, or creative production? We're always looking for talented individuals to join our team and help capture the moments that matter.
-            </p>
-            <Link
-              to="/join"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-lavender text-black font-semibold rounded-full hover:bg-lavender-light transition-all duration-300 hover:scale-105 shadow-lg shadow-lavender/30"
-            >
-              View Open Positions
-              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" className="w-5 h-5">
-                <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
-              </svg>
-            </Link>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-lavender/20 text-lavender mb-6 group-hover:scale-110 group-hover:bg-lavender/30 transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 640 512" className="w-8 h-8">
+                  <path d="M96 128a128 128 0 1 0 256 0A128 128 0 1 0 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM609.3 512H471.4c5.4-9.4 8.6-20 8.6-31.2v-8.2c0-60.7-27.1-115.2-69.9-151.8c2.4-.1 4.7-.2 7.1-.2h61.4C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-70.7-57.3-128-128-128S128 57.3 128 128c0 35.6 11.6 68.5 31.3 95.1C139 243.4 111 256 80 256c-26.5 0-48-21.5-48-48c0-8.9 2.5-17.1 6.6-24.3C7.1 169.1 0 150.2 0 128C0 57.3 57.3 0 128 0s128 57.3 128 128c0 22.2-7.1 41.1-18.6 55.7c4.1 7.2 6.6 15.4 6.6 24.3c0 26.5-21.5 48-48 48zm48-64a128 128 0 1 0 0-256 128 128 0 1 0 0 256z"/>
+                </svg>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-lavender-light to-white bg-clip-text text-transparent mb-4">
+                Join Our Creative Crew
+              </h2>
+              <p className="text-white/70 mb-8 leading-relaxed text-lg">
+                Passionate about media, storytelling, or creative production? We're always looking for talented individuals to join our team and help capture the moments that matter.
+              </p>
+              <Link
+                to="/join"
+                className="group/btn inline-flex items-center gap-2 px-8 py-4 bg-lavender text-black font-semibold rounded-full hover:bg-lavender-light transition-all duration-300 hover:scale-105 shadow-lg shadow-lavender/30 hover:shadow-[0_0_35px_rgba(232,136,232,0.5)]"
+              >
+                <span>View Open Positions</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 448 512" className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform">
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
