@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { FaImages, FaUserPlus, FaCalendarCheck, FaInfoCircle, FaUsers, FaCalendarAlt, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
 
 const PageHero = ({
   eyebrow,
@@ -40,25 +41,22 @@ const PageHero = ({
 
           const getIcon = (label) => {
             const lowerLabel = label.toLowerCase();
-            if (lowerLabel.includes('gallery') || lowerLabel.includes('view') || lowerLabel.includes('explore')) return 'fa-images';
-            if (lowerLabel.includes('join') || lowerLabel.includes('apply')) return 'fa-user-plus';
-            if (lowerLabel.includes('contact') || lowerLabel.includes('book') || lowerLabel.includes('submit')) return 'fa-calendar-check';
-            if (lowerLabel.includes('about') || lowerLabel.includes('learn')) return 'fa-info-circle';
-            if (lowerLabel.includes('team') || lowerLabel.includes('meet')) return 'fa-users';
-            if (lowerLabel.includes('events') || lowerLabel.includes('upcoming')) return 'fa-calendar-alt';
-            if (lowerLabel.includes('follow') || lowerLabel.includes('social')) return 'fa-external-link-alt';
-            return 'fa-arrow-right';
+            if (lowerLabel.includes('gallery') || lowerLabel.includes('view') || lowerLabel.includes('explore')) return FaImages;
+            if (lowerLabel.includes('join') || lowerLabel.includes('apply')) return FaUserPlus;
+            if (lowerLabel.includes('contact') || lowerLabel.includes('book') || lowerLabel.includes('submit')) return FaCalendarCheck;
+            if (lowerLabel.includes('about') || lowerLabel.includes('learn')) return FaInfoCircle;
+            if (lowerLabel.includes('team') || lowerLabel.includes('meet')) return FaUsers;
+            if (lowerLabel.includes('events') || lowerLabel.includes('upcoming')) return FaCalendarAlt;
+            if (lowerLabel.includes('follow') || lowerLabel.includes('social')) return FaExternalLinkAlt;
+            return FaArrowRight;
           };
 
+          const Icon = action.icon || getIcon(action.label);
           const content = (
             <>
-              {action.icon ? (
-                <i className={`fas ${action.icon} text-lg`} />
-              ) : (
-                <i className={`fas ${getIcon(action.label)} text-lg`} />
-              )}
+              {Icon && <Icon className="text-lg" />}
               <span>{action.label}</span>
-              <i className="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform" />
+              <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
             </>
           );
 

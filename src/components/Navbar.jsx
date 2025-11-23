@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { FaHome, FaInfoCircle, FaUsers, FaCalendarAlt, FaImages, FaNewspaper, FaUserPlus, FaEnvelope, FaArrowRight, FaCalendarCheck, FaTimes, FaBars } from 'react-icons/fa';
 import logo from '../assets/Logo.png';
 
 const Navbar = () => {
@@ -26,14 +27,14 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { path: '/', label: 'Home', icon: 'fa-home' },
-    { path: '/about', label: 'About', icon: 'fa-info-circle' },
-    { path: '/team', label: 'Team', icon: 'fa-users' },
-    { path: '/events', label: 'Events', icon: 'fa-calendar-alt' },
-    { path: '/gallery', label: 'Gallery', icon: 'fa-images' },
-    { path: '/news', label: 'News', icon: 'fa-newspaper' },
-    { path: '/join', label: 'Join', icon: 'fa-user-plus' },
-    { path: '/contact', label: 'Contact', icon: 'fa-envelope' },
+    { path: '/', label: 'Home', icon: FaHome },
+    { path: '/about', label: 'About', icon: FaInfoCircle },
+    { path: '/team', label: 'Team', icon: FaUsers },
+    { path: '/events', label: 'Events', icon: FaCalendarAlt },
+    { path: '/gallery', label: 'Gallery', icon: FaImages },
+    { path: '/news', label: 'News', icon: FaNewspaper },
+    { path: '/join', label: 'Join', icon: FaUserPlus },
+    { path: '/contact', label: 'Contact', icon: FaEnvelope },
   ];
 
   const linkClasses = (path) =>
@@ -104,22 +105,25 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link 
-                  key={link.path} 
-                  to={link.path} 
-                  className={linkClasses(link.path)}
-                  title={link.label}
-                >
-                  <span className="relative z-10 flex items-center gap-2 backdrop-blur-sm">
-                    <i className={`fas ${link.icon} text-xs`} />
-                    <span>{link.label}</span>
-                  </span>
-                  {isActive(link.path) && (
-                    <span className="absolute inset-0 rounded-full bg-lavender/30 blur-md animate-pulse" />
-                  )}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <Link 
+                    key={link.path} 
+                    to={link.path} 
+                    className={linkClasses(link.path)}
+                    title={link.label}
+                  >
+                    <span className="relative z-10 flex items-center gap-2 backdrop-blur-sm">
+                      {Icon && <Icon className="text-xs" />}
+                      <span>{link.label}</span>
+                    </span>
+                    {isActive(link.path) && (
+                      <span className="absolute inset-0 rounded-full bg-lavender/30 blur-md animate-pulse" />
+                    )}
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Desktop CTA */}
@@ -130,14 +134,14 @@ const Navbar = () => {
                 style={{ boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1)' }}
               >
                 Join Us
-                <i className="fas fa-arrow-right text-[10px] transition-transform duration-300 group-hover:translate-x-1" />
+                <FaArrowRight className="text-[10px] transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-lavender backdrop-blur-sm px-5 py-2 text-sm font-semibold text-black transition-all duration-300 hover:bg-lavender-light hover:scale-105 shadow-[0_0_25px_rgba(232,136,232,0.35)] hover:shadow-[0_0_35px_rgba(232,136,232,0.5)]"
               >
                 Book Us
-                <i className="fas fa-calendar-check text-xs" />
+                <FaCalendarCheck className="text-xs" />
               </Link>
             </div>
 
@@ -148,7 +152,7 @@ const Navbar = () => {
               style={{ boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1)' }}
               aria-label="Toggle navigation menu"
             >
-              <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} transition-transform duration-300`}></i>
+              {isOpen ? <FaTimes className="transition-transform duration-300" /> : <FaBars className="transition-transform duration-300" />}
             </button>
           </div>
         </div>
@@ -166,24 +170,27 @@ const Navbar = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-transparent opacity-50" />
             <div className="relative z-10">
             <div className="px-4 py-4 space-y-2">
-              {navLinks.map((link, index) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block rounded-full px-4 py-3 text-sm font-medium transition-all duration-300 transform ${
-                    isActive(link.path)
-                      ? 'bg-lavender text-black shadow-[0_0_20px_rgba(232,136,232,0.35)] scale-105'
-                      : 'text-white/80 hover:text-white hover:bg-white/10 hover:scale-105'
-                  }`}
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <span className="flex items-center gap-3">
-                    <i className={`fas ${link.icon} w-5 text-center`} />
-                    <span>{link.label}</span>
-                  </span>
-                </Link>
-              ))}
+              {navLinks.map((link, index) => {
+                const Icon = link.icon;
+                return (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block rounded-full px-4 py-3 text-sm font-medium transition-all duration-300 transform ${
+                      isActive(link.path)
+                        ? 'bg-lavender text-black shadow-[0_0_20px_rgba(232,136,232,0.35)] scale-105'
+                        : 'text-white/80 hover:text-white hover:bg-white/10 hover:scale-105'
+                    }`}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <span className="flex items-center gap-3">
+                      {Icon && <Icon className="w-5 text-center" />}
+                      <span>{link.label}</span>
+                    </span>
+                  </Link>
+                );
+              })}
               <div className="pt-3 mt-3 border-t border-white/10 space-y-2">
                 <Link
                   to="/join"
@@ -192,7 +199,7 @@ const Navbar = () => {
                   style={{ boxShadow: 'inset 0 1px 0 0 rgba(255,255,255,0.1)' }}
                 >
                   <span className="flex items-center justify-center gap-2">
-                    <i className="fas fa-user-plus" />
+                    <FaUserPlus />
                     Join the Collective
                   </span>
                 </Link>
@@ -202,7 +209,7 @@ const Navbar = () => {
                   className="block rounded-full bg-lavender backdrop-blur-sm px-4 py-3 text-sm font-semibold text-black transition-all duration-300 hover:bg-lavender-light hover:scale-105 shadow-[0_0_20px_rgba(232,136,232,0.35)]"
                 >
                   <span className="flex items-center justify-center gap-2">
-                    <i className="fas fa-calendar-check" />
+                    <FaCalendarCheck />
                     Book a Project
                   </span>
                 </Link>

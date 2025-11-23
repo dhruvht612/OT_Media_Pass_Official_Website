@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 import PageHero from '../components/PageHero';
 
 const Contact = () => {
@@ -147,7 +148,7 @@ const Contact = () => {
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-lavender rounded-full flex items-center justify-center">
-                      <i className="fas fa-envelope text-black text-lg"></i>
+                      <FaEnvelope className="text-black text-lg" />
                     </div>
                     <div>
                       <h3 className="font-bold text-white mb-1">Email</h3>
@@ -159,7 +160,7 @@ const Contact = () => {
 
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-lavender rounded-full flex items-center justify-center">
-                      <i className="fas fa-map-marker-alt text-black text-lg"></i>
+                      <FaMapMarkerAlt className="text-black text-lg" />
                     </div>
                     <div>
                       <h3 className="font-bold text-white mb-1">Location</h3>
@@ -173,7 +174,7 @@ const Contact = () => {
 
                   <div className="flex items-start space-x-4">
                     <div className="flex-shrink-0 w-12 h-12 bg-lavender rounded-full flex items-center justify-center">
-                      <i className="fas fa-clock text-black text-lg"></i>
+                      <FaClock className="text-black text-lg" />
                     </div>
                     <div>
                       <h3 className="font-bold text-white mb-1">Office Hours</h3>

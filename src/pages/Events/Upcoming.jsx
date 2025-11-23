@@ -1,4 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
+import { FaCalendarCheck, FaArrowRight } from 'react-icons/fa';
 import { upcomingEvents } from '../../data/events';
 import EventCard from '../../components/EventCard';
 import PageHero from '../../components/PageHero';
@@ -95,9 +96,9 @@ const Upcoming = () => {
             to="/contact"
             className="group inline-flex items-center justify-center gap-3 bg-lavender hover:bg-lavender-light text-black font-bold py-4 px-8 rounded-full transition-all duration-300 hover:scale-110 shadow-[0_0_25px_rgba(232,136,232,0.35)] hover:shadow-[0_0_35px_rgba(232,136,232,0.5)]"
           >
-            <i className="fas fa-calendar-check" />
+            <FaCalendarCheck />
             <span>Contact Us</span>
-            <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform" />
+            <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </section>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { FaImages, FaUserPlus, FaCalendarCheck, FaArrowRight } from 'react-icons/fa';
 import teamPhoto from '../assets/Team_Pictures/Team_Pic.jpg';
 import logo from '../assets/Logo.png';
 
@@ -118,23 +119,23 @@ const Home = () => {
                 to="/gallery"
                 className="group inline-flex items-center justify-center gap-3 rounded-full bg-lavender px-8 py-4 text-base font-bold text-black transition-all duration-300 hover:bg-lavender-light hover:scale-110 shadow-[0_0_30px_rgba(232,136,232,0.4)] hover:shadow-[0_0_50px_rgba(232,136,232,0.6)]"
               >
-                <i className="fas fa-images text-lg" />
+                <FaImages className="text-lg" />
                 <span>Explore Gallery</span>
-                <i className="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform" />
+                <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/join"
                 className="group inline-flex items-center justify-center gap-3 rounded-full border-2 border-white/30 bg-white/5 backdrop-blur-xl px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:border-lavender hover:text-lavender hover:bg-white/10 hover:scale-110 hover:shadow-[0_0_30px_rgba(232,136,232,0.2)]"
               >
-                <i className="fas fa-user-plus text-lg" />
+                <FaUserPlus className="text-lg" />
                 <span>Join the Crew</span>
-                <i className="fas fa-arrow-right text-sm group-hover:translate-x-1 transition-transform" />
+                <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/contact"
                 className="group inline-flex items-center justify-center gap-3 rounded-full border-2 border-lavender/50 bg-lavender/10 backdrop-blur-xl px-8 py-4 text-base font-bold text-lavender transition-all duration-300 hover:border-lavender hover:bg-lavender/20 hover:scale-110 hover:shadow-[0_0_30px_rgba(232,136,232,0.3)]"
               >
-                <i className="fas fa-calendar-check text-lg" />
+                <FaCalendarCheck className="text-lg" />
                 <span>Book Us</span>
               </Link>
             </div>
@@ -242,17 +243,17 @@ const Home = () => {
             {
               title: 'Event Coverage',
               description: 'Dynamic photo & video coverage for concerts, athletics, and student showcases.',
-              icon: 'fa-video'
+              icon: 'video'
             },
             {
               title: 'Creative Campaigns',
               description: 'Content strategy, storyboarding, and multi-platform rollout for your initiatives.',
-              icon: 'fa-bullhorn'
+              icon: 'bullhorn'
             },
             {
               title: 'Studio Sessions',
               description: 'Portrait, product, and promo shoots with professional lighting and direction.',
-              icon: 'fa-lightbulb'
+              icon: 'lightbulb'
             }
           ].map((feature) => (
             <div
@@ -262,17 +263,17 @@ const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-lavender/10 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
               <div className="relative z-10">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-lavender/20 text-lavender">
-                  {feature.icon === 'fa-video' && (
+                  {feature.icon === 'video' && (
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 576 512" className="w-6 h-6">
                       <path d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2V384c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1V320 192 174.9l14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"/>
                     </svg>
                   )}
-                  {feature.icon === 'fa-bullhorn' && (
+                  {feature.icon === 'bullhorn' && (
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512" className="w-6 h-6">
                       <path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"/>
                     </svg>
                   )}
-                  {feature.icon === 'fa-lightbulb' && (
+                  {feature.icon === 'lightbulb' && (
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 384 512" className="w-6 h-6">
                       <path d="M272 384c9.6-31.9 29.5-59.1 49.2-86.2l0 0c5.2-7.1 10.4-14.2 15.4-21.4c19.8-28.5 31.4-63 31.4-100.3C368 78.8 289.2 0 192 0S16 78.8 16 176c0 37.3 11.6 71.9 31.4 100.3c5 7.2 10.2 14.3 15.4 21.4l0 0c19.8 27.1 39.7 54.4 49.2 86.2H272zM192 512c44.2 0 80-35.8 80-80V416H112v16c0 44.2 35.8 80 80 80zM112 176c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112c8.8 0 16 7.2 16 16s-7.2 16-16 16c-44.2 0-80 35.8-80 80z"/>
                     </svg>
