@@ -10,7 +10,6 @@ import Upcoming from './pages/Events/Upcoming';
 import Planned from './pages/Events/Planned';
 import Past from './pages/Events/Past';
 import Gallery from './pages/Gallery';
-import News from './pages/News';
 import Contact from './pages/Contact';
 import Join from './pages/Join';
 import Positions from './pages/Join/Positions';
@@ -66,7 +65,6 @@ function App() {
             <Route path="/events/planned" element={<Planned />} />
             <Route path="/events/past" element={<Past />} />
             <Route path="/gallery" element={<Gallery />} />
-            <Route path="/news" element={<News />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/join" element={<Join />} />
             <Route path="/join/positions" element={<Positions />} />

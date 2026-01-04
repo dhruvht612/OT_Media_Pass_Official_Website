@@ -4,7 +4,6 @@ import ryanPic from '../assets/Team_Pictures/Ryan_Pic.jpg';
 import justinPic from '../assets/Team_Pictures/Justin_Pic.jpg';
 import alZaaraPic from '../assets/Team_Pictures/AlZaara_Pic.jpg';
 import nazalPic from '../assets/Team_Pictures/Nazal_Pic.jpg';
-import nifemiPic from '../assets/Team_Pictures/Nifemi_Pic.jpg';
 import stellaPic from '../assets/Team_Pictures/Stella_Pic.png';
 import farhanPic from '../assets/Team_Pictures/Farhan_Pic.jpg';
 import eyadPic from '../assets/Team_Pictures/Eyad_Pic.jpg';
@@ -69,19 +68,6 @@ export const teamMembers = [
     socials: {
       linkedin: "https://www.linkedin.com/in/al-zaara-hashim-884622283",
       instagram: "https://www.instagram.com/alzh.jpeg?igsh=a3MzNmliYjI2MDFl&utm_source=qr"
-    }
-  },
-  {
-    id: 6,
-    name: "Nifemi Toluhi",
-    role: "Outreach Coordinator",
-    program: "2nd Year Computer Science",
-    bio: "Hi, I'm Nifemi! I'm just getting into photography and excited to learn with OT Media Pass.",
-    image: nifemiPic,
-    socials: {
-      linkedin: "https://www.linkedin.com/in/nifemi-toluhi-40baa5364?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
-      instagram: "https://www.instagram.com/dankuso1107?igsh=dDdsOWdrZjIzcHl3&utm_source=qr",
-      github: "https://github.com/Dankuso1107"
     }
   },
   {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaInfoCircle, FaUsers, FaCalendarAlt, FaImages, FaNewspaper, FaUserPlus, FaEnvelope, FaArrowRight, FaCalendarCheck, FaTimes, FaBars } from 'react-icons/fa';
+import { FaHome, FaInfoCircle, FaUsers, FaCalendarAlt, FaImages, FaUserPlus, FaEnvelope, FaArrowRight, FaCalendarCheck, FaTimes, FaBars } from 'react-icons/fa';
 import logo from '../assets/Logo.png';
 
 const Navbar = () => {
@@ -32,7 +32,6 @@ const Navbar = () => {
     { path: '/team', label: 'Team', icon: FaUsers },
     { path: '/events', label: 'Events', icon: FaCalendarAlt },
     { path: '/gallery', label: 'Gallery', icon: FaImages },
-    { path: '/news', label: 'News', icon: FaNewspaper },
     { path: '/join', label: 'Join', icon: FaUserPlus },
     { path: '/contact', label: 'Contact', icon: FaEnvelope },
   ];
