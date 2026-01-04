@@ -424,24 +424,24 @@ const Home = () => {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                quote: 'OT Media Pass captured our annual gala with incredible attention to detail. The photos and videos perfectly captured the energy of the night, and we received everything within days. Highly professional team!',
-                author: 'Sarah Chen',
-                role: 'Event Coordinator',
-                organization: 'Student Union',
+                quote: 'You guys did a great job, one thing I would recommend is that in the future try to share the drive with only the selected/edited pictures as that\'s how many photographers deliver their services! I can understand you guys might have a reason as to how you handle it, I just wanted to share my thoughts.',
+                author: 'Ashley',
+                role: 'Chief Communications Officer',
+                organization: 'Netsoc',
                 rating: 5
               },
               {
-                quote: 'Working with Media Pass was seamless from start to finish. They understood our vision for the campaign and delivered content that exceeded our expectations. The quality is outstanding!',
-                author: 'Marcus Johnson',
-                role: 'Marketing Director',
-                organization: 'Athletics Department',
+                quote: 'Media Pass is incredibly helpful and talented! Even on short notice they were able to help support our Charity Auction Dinner and took amazing photos that captured the essence and excitement of our event and we couldn\'t be more grateful for their services! The photos were beautiful and were delivered to us so promptly as well.',
+                author: 'Zainab Khalid',
+                role: 'Co-President',
+                organization: 'Islamic Relief OTU',
                 rating: 5
               },
               {
-                quote: 'The team\'s creativity and professionalism shine through in every project. They\'ve become our go-to media partner for all major events. The turnaround time is impressive!',
-                author: 'Emily Rodriguez',
-                role: 'Club President',
-                organization: 'Cultural Society',
+                quote: 'Folks this was incredible. You truly captured the most important part of the evening and we are grateful for your time and care in putting this together. Thank you SO much ❤️',
+                author: 'Liv',
+                role: 'OT Alumni',
+                organization: '',
                 rating: 5
               }
             ].map((testimonial, index) => (
