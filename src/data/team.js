@@ -13,7 +13,6 @@ import humzaPic from '../assets/Team_Pictures/Humza_Pic.jpg';
 // import nathanielPic from '../assets/Team_Pictures/Nathaniel_Pic.jpg';
 import siretPic from '../assets/Team_Pictures/Siret_pic.jpg';
 import billyPic from '../assets/Team_Pictures/Billy_Pic.jpg';
-// import emekaPic from '../assets/Team_Pictures/Emeka_Pic.jpg';
 import dhruvPic from '../assets/Team_Pictures/Dhruv_Pic.jpg';
 // import stevePic from '../assets/Team_Pictures/Steve_Pic.jpg';
 // Note: Add Steve_Pic.jpg to Team_Pictures folder when available
@@ -51,7 +50,7 @@ export const teamMembers = [
   {
     id: 4,
     name: "Justin Tran",
-    role: "Marketing Executive",
+    role: "Vp of Marketing",
     program: "4th Year · Mechatronics Engineering",
     bio: "Hi, I'm Justin! Passionate about technology and creative media.",
     image: justinPic,
@@ -186,15 +185,6 @@ export const teamMembers = [
     socials: {}
   },
   {
-    id: 16,
-    name: "Emeka",
-    role: "Outreach Coordinator",
-    program: "Program TBD",
-    bio: "Outreach Coordinator at OT Media Pass.",
-    //image: emekaPic,
-    socials: {}
-  },
-  {
     id: 17,
     name: "Dhruv",
     role: "Vice President Tech",
@@ -211,7 +201,7 @@ export const teamMembers = [
   },
   {
     id: 18,
-    name: "Steve (Teto) Khalil",
+    name: "Steve Khalil",
     role: "Vice President Social Media",
     program: "3rd year Software Engineering",
     bio: "Hey! I'm Teto, I run a lot of the stuff going on with our socials! My favorite media to work on is streaming and video editing. I have more interests than I can actually list here. Fun Fact: I have 2 cats named Zoovie and Oreo.",
